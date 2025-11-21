@@ -1,0 +1,31 @@
+{
+  "name": "sensitive-react",
+  "version": "1.0.0",
+  "description": "React敏感数据处理组件库",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "mkdir -p dist && cp src/index.js dist/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
+  "keywords": [
+    "sensitive",
+    "data",
+    "masking",
+    "react",
+    "components"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asialjim/sensitive.git"
+  },
+  "bugs": {
+    "url": "https://github.com/asialjim/sensitive/issues"
+  },
+  "homepage": "https://github.com/asialjim/sensitive#readme"
+}

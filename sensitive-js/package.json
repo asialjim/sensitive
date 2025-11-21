@@ -1,0 +1,26 @@
+{
+  "name": "sensitive-js",
+  "version": "1.0.0",
+  "description": "JavaScript敏感数据处理库",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "mkdir -p dist && cp src/index.js dist/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "sensitive",
+    "data",
+    "masking",
+    "javascript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asialjim/sensitive.git"
+  },
+  "bugs": {
+    "url": "https://github.com/asialjim/sensitive/issues"
+  },
+  "homepage": "https://github.com/asialjim/sensitive#readme"
+}

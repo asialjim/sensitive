@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sensitive-JS MaskData 测试</title>
+</head>
+<body>
+    <div>
+        <MaskData>_mask|GM|E2i8DrA64clzArcrw-gX1w==|i6BcaPivmJBX8A5isRepP2vmrgQOQjdXFeaMfL387yc=|LWm-TTjIMm_MRo0ior4-28AWxgOVa84JsthMv3mfXbM=|1101*****@ggg.com</MaskData>
+    </div>
+
+    <div>
+        <MaskData>annother-sensitive-data@ggg.com</MaskData>
+    </div>
+
+    <!-- 引入敏感数据处理库 -->
+    <script src="./src/index.js"></script>
+</body>
+</html>
