@@ -13,11 +13,6 @@
 2. **sensitive-jackson**: Jackson序列化/反序列化集成
 3. **sensitive-spring**: Spring Boot自动配置支持
 
-### JavaScript模块
-4. **sensitive-js**: JavaScript敏感数据处理库
-5. **sensitive-react**: React敏感数据处理组件库
-6. **sensitive-vue**: Vue敏感数据处理组件库
-7. **sensitive-wx-applet**: 微信小程序敏感数据处理库
 
 ## 核心特性
 
