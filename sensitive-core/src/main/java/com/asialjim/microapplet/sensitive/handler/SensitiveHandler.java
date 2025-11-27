@@ -86,6 +86,9 @@ public abstract class SensitiveHandler {
                               String regex, boolean match,
                               Function<String, String> function) {
 
+        if (StringUtils.isBlank(source))
+            return source;
+
         if (StringUtils.isNotBlank(regex)) {
             boolean matches = patternOf(regex).matcher(source).matches();
             if (match && !matches)

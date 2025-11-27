@@ -24,6 +24,8 @@ import com.asialjim.microapplet.sensitive.encrypt.KeyManager;
 import com.asialjim.microapplet.sensitive.encrypt.SecretKeyRepository;
 import org.junit.Test;
 
+import javax.crypto.SecretKey;
+import javax.crypto.spec.SecretKeySpec;
 import java.util.Collections;
 
 /**
@@ -57,9 +59,11 @@ public class ContextBeanTest {
                 } catch (Exception e) {
                     System.out.println("[ERROR] 生成密钥失败: " + e.getMessage());
                 }
+
                 return pair;
             };
-            
+
+
             EncryptionContextBean bean = new EncryptionContextBean(
                     Collections.singletonList(ctx), cfg, repository
             );

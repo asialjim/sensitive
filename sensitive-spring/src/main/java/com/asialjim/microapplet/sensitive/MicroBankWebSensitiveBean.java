@@ -49,9 +49,21 @@ import java.util.concurrent.ConcurrentHashMap;
         CustomerSensitiveHandler.class,
         EMailSensitiveHandler.class,
         EnglishNameSensitiveHandler.class,
-        EncryptionContextBean.class
+        EncryptionContextBean.class,
+        GMEncryptionStrategy.class,
+        ModernEncryptionStrategy.class
 })
 public class MicroBankWebSensitiveBean {
+
+    @Bean
+    public EncryptionContext modernEncryptionContext(){
+        return new EncryptionContext(AlgorithmMode.MODERN);
+    }
+
+    @Bean
+    public EncryptionContext gmEncryptionContext(){
+        return new EncryptionContext(AlgorithmMode.GM);
+    }
 
     @Bean
     @ConditionalOnMissingBean(AlgorithmModeConfig.class)

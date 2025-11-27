@@ -29,11 +29,13 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public enum AlgorithmMode {
-    GM("GM", "国密算法(SM4-SM3)"),
-    MODERN("MODERN", "现代算法(ChaCha20-Poly1305/AES-GCM)");
+    GM("GM", "国密算法(SM4-SM3)","ChaCha20","ChaCha20"),
+    MODERN("MODERN", "现代算法(ChaCha20-Poly1305/AES-GCM)","SM4","HmacSM3");
 
     private final String code;
     private final String description;
+    private final String encAlgorithm;
+    private final String macAlgorithm;
 
     public static AlgorithmMode fromCode(String code) {
         for (AlgorithmMode mode : values()) {

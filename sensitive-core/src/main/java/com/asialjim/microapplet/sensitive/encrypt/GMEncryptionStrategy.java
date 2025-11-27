@@ -16,8 +16,6 @@
 
 package com.asialjim.microapplet.sensitive.encrypt;
 
-import org.bouncycastle.jce.provider.BouncyCastleProvider;
-
 import javax.crypto.Cipher;
 import javax.crypto.Mac;
 import javax.crypto.SecretKey;
@@ -25,7 +23,6 @@ import javax.crypto.spec.IvParameterSpec;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.SecureRandom;
-import java.security.Security;
 import java.util.Objects;
 
 /**
@@ -39,9 +36,6 @@ public class GMEncryptionStrategy implements EncryptionStrategy {
     private static final int GM_IV_LENGTH = 16;
 
     private final SecureRandom secureRandom = new SecureRandom();
-    static {
-
-    }
 
     @Override
     public EncryptionResult encrypt(String sensitiveData, SecretKey encryptionKey, SecretKey macKey) throws Exception {

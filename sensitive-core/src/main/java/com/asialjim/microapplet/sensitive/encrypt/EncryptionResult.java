@@ -30,7 +30,7 @@ public record EncryptionResult(
         @Getter byte[] mac) {
 
     public String toFormattedString() {
-        // 格式化为字符串: _mask|algorithm_flag|nonce_hex|encrypt_hex|mac_hex|mask
+        // 格式化为字符串: _mask|algorithm|nonce|encrypt|mac|mask
         String algorithmFlag = algorithmMode.getCode();
         String encryptHex = bytesToBase64Url(encrypt);
         String macHex = bytesToBase64Url(mac);

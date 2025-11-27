@@ -19,13 +19,12 @@ package com.asialjim.microapplet.sensitive.jackson;
 import com.asialjim.microapplet.sensitive.annotation.Sensitive;
 import com.asialjim.microapplet.sensitive.encrypt.EncryptionContextBean;
 import com.asialjim.microapplet.sensitive.encrypt.EncryptionResult;
-import com.asialjim.microapplet.sensitive.handler.SensitiveHandler;
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.BeanProperty;
-import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializerProvider;
 import com.fasterxml.jackson.databind.ser.ContextualSerializer;
+import org.apache.commons.lang3.StringUtils;
 
 import java.io.IOException;
 import java.util.Objects;
@@ -52,6 +51,11 @@ public class SensitiveSerializer extends JsonSerializer<String> implements Conte
 
     @Override
     public void serialize(String s, JsonGenerator jsonGenerator, SerializerProvider serializerProvider) throws IOException {
+        if (StringUtils.isBlank(s)) {
+            jsonGenerator.writeString(s);
+            return;
+        }
+
         String mask = JacksonSensitiveHandler.mask(sensitive, s);
         EncryptionResult encrypt = EncryptionContextBean.instance.encrypt(s);
         String target = encrypt.withMask(mask);
@@ -59,7 +63,7 @@ public class SensitiveSerializer extends JsonSerializer<String> implements Conte
     }
 
     @Override
-    public JsonSerializer<?> createContextual(SerializerProvider serializerProvider, BeanProperty beanProperty) throws JsonMappingException {
+    public JsonSerializer<?> createContextual(SerializerProvider serializerProvider, BeanProperty beanProperty) {
         if (Objects.isNull(beanProperty))
             return this;
 
