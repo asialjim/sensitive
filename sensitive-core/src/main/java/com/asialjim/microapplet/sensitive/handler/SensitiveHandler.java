@@ -106,8 +106,18 @@ public abstract class SensitiveHandler {
             return s;
         int length = StringUtils.length(s);
 
-        if (prefix + suffix >= length)
+        if (prefix + suffix > length)
             throw new IllegalArgumentException("敏感数据脱敏失败:敏感数据长度小于脱敏规则最低长度");
+        if (prefix + suffix == length) {
+            if (suffix > 0)
+                suffix = suffix - 1;
+            else if (prefix > 1) {
+                prefix = prefix - 1;
+            } else {
+                throw new IllegalArgumentException("敏感数据脱敏失败:敏感数据长度小于脱敏规则最低长度");
+            }
+        }
+
         int maskLen = length - prefix - suffix;
 
         return s.substring(0, prefix) + StringUtils.repeat('*', maskLen) + s.substring(length - suffix);
