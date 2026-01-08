@@ -19,10 +19,12 @@ package com.asialjim.microapplet.sensitive.jackson;
 import com.asialjim.microapplet.sensitive.annotation.Sensitive;
 import com.asialjim.microapplet.sensitive.encrypt.EncryptionContextBean;
 import com.asialjim.microapplet.sensitive.encrypt.EncryptionResult;
-import com.asialjim.microapplet.sensitive.handler.SensitiveHandler;
 import com.fasterxml.jackson.core.JacksonException;
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.*;
+import com.fasterxml.jackson.databind.BeanProperty;
+import com.fasterxml.jackson.databind.DeserializationContext;
+import com.fasterxml.jackson.databind.JsonDeserializer;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.deser.ContextualDeserializer;
 import org.apache.commons.lang3.StringUtils;
 
@@ -45,6 +47,7 @@ public class SensitiveDeserializer extends JsonDeserializer<String> implements C
 
         if (Objects.isNull(this.sensitive))
             return valueAsString;
+        System.err.println(valueAsString);
 
         // 标准脱敏数据结构
         if (EncryptionResult.isEncryptionMaskData(valueAsString))

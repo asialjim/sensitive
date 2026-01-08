@@ -68,5 +68,5 @@ public @interface Sensitive {
     /**
      * 敏感数据正则表达式
      */
-    String regex() default "^[\\p{L}\\p{N}]*$";
+    String regex() default "^[\\p{L}\\p{N} ]*$";
 }

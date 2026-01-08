@@ -68,7 +68,7 @@ public enum SensitiveType {
     /**
      * 自定义敏感类型
      */
-    Customer("^[\\p{L}\\p{N}]*$",1,1);
+    Customer("^[\\p{L}\\p{N} ]*$",1,1);
 
     private final String regex;
     private final int prefix;
